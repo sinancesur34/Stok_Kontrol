@@ -1,0 +1,33 @@
+﻿@using EntityLayer.Concrete
+@model List<Musteri>
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+
+<h3>Müşteri Listesi</h3>
+<br />
+<table class="table table-hover">
+    <tr>
+        <th>MüsteriID</th>
+        <th>Müşteri Adı</th>
+        <th>Müşteri Soyadı</th>
+        <th>Müşteri TCKN</th>
+
+    </tr>
+
+    @foreach (var item in Model)
+    {
+
+        <tr>
+            <td>@item.MusteriID</td>
+            <td>@item.MusteriAd</td>
+            <td>@item.MusteriSoyad</td>
+            <td>@item.MusteriTCKN</td>
+
+        </tr>
+    }
+</table>
+
+<br />
+<a href="/Musteri/AddMusteri" class="btn btn-info">Yeni Müşteri</a>

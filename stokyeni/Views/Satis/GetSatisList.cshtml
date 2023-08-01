@@ -1,0 +1,30 @@
+﻿@using EntityLayer.Concrete
+@model List<Satis>
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+
+<h3>Satis Listesi</h3>
+<br />
+<table class="table table-hover">
+    <tr>
+        <th>Satış ID</th>
+        <th>MÜşteri ID</th>
+        <th>Ürün ID</th>
+
+    </tr>
+
+    @foreach (var item in Model)
+    {
+
+        <tr>
+            <td>@item.SatisID</td>
+            <td>@item.MusteriID</td>
+            <td>@item.UrunID</td>
+        </tr>
+    }
+</table>
+
+<br />
+<a href="/Satis/AddSatis" class="btn btn-info">Yeni Kategori</a>

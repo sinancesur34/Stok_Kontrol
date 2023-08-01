@@ -1,0 +1,29 @@
+﻿@using EntityLayer.Concrete
+@model List<Kategori>
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+
+<h3>Kategori Listesi</h3>
+<br />
+<table class="table table-hover">
+    <tr>
+        <th>KategoriID</th>
+        <th>Kategori Adı</th>
+       
+    </tr>
+
+    @foreach (var item in Model)
+    {
+
+        <tr>
+            <td>@item.KategoriID</td>
+            <td>@item.KategoriAd</td>
+         
+        </tr>
+    }
+</table>
+
+<br />
+<a href="/Category/AddCategory" class="btn btn-info">Yeni Kategori</a>
