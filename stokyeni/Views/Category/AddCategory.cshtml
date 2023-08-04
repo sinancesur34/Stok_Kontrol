@@ -1,9 +1,26 @@
-﻿@{
+﻿@model EntityLayer.Concrete.Kategori
+@{
     Layout = "~/Views/Shared/_Layout.cshtml";
 
 }
 <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
-<form class="form-group" method="post">
+
+@using(Html.BeginForm("AddCategory","Category",FormMethod.Post))
+
+
+
+            {
+                <div class="form-group">
+
+                    @Html.Label("Kategori Adı")
+                    @Html.TextBoxFor(x=>x.KategoriAd)
+                    <br /><br />
+
+                    <button>Kaydet</button>
+                </div>
+            }
+
+@*<form class="form-group" method="post">
 
     <div style="margin-top:10px">
         <center> <h2>Kategori Ekle</h2></center>
@@ -20,4 +37,4 @@
 
     </div>
 
-</form>
+</form>*@

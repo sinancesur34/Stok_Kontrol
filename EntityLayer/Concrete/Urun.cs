@@ -22,7 +22,7 @@ namespace EntityLayer.Concrete
 
         //// Ürün ile Kategori arasında bir ilişki
         [ForeignKey("Kategori")]
-        public string KategoriAd { get; set; }
+        public int KategoriID { get; set; }
         public virtual Kategori Kategori { get; set; }
 
         //// Ürün ile Satış arasında bir ilişki
