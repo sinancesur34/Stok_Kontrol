@@ -61,6 +61,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Abstract\IKategoriService.cs" />
+    <Compile Include="Abstract\IMusteriService.cs" />
+    <Compile Include="Abstract\ISatisService.cs" />
+    <Compile Include="Abstract\IUrunService.cs" />
     <Compile Include="Concrete\KategoriManager.cs" />
     <Compile Include="Concrete\MusteriManager.cs" />
     <Compile Include="Concrete\SatisManager.cs" />

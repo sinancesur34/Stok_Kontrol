@@ -1,4 +1,6 @@
-﻿using DataAccessLayer.Concrete.Repositories;
+﻿using BusinessLayer.Abstract;
+using DataAccessLayer.Abstract;
+using DataAccessLayer.Concrete.Repositories;
 using EntityLayer.Concrete;
 using System;
 using System.Collections.Generic;
@@ -8,26 +10,27 @@ using System.Threading.Tasks;
 
 namespace BusinessLayer.Concrete
 {
-    public class MusteriManager
+    public class MusteriManager:IMusteriService
     {
-        GenericRepository<Musteri> repo = new GenericRepository<Musteri>();
 
-        public List<Musteri> GetAllBl()
+        IMusteriDal _MusteriDal;
+
+
+
+        public MusteriManager(IMusteriDal MusteriDal)
         {
-            return repo.List();
+            _MusteriDal = MusteriDal;
         }
-        public void MusteriAddBL(Musteri p)
-        {
-            repo.Insert(p);
-            //if (p.CategoryName == "" || p.CategoryName.Length <= 3 ||
-            //   p.CategoryDescription == "" || p.CategoryName.Length >= 51)
-            //{
-            //    //hata mesajı
-            //}
-            //else
-            //{
 
-            //}
+
+        public void MusteriAdd(Musteri Musteri)
+        {
+            _MusteriDal.Insert(Musteri);
+        }
+
+        public List<Musteri> GetList()
+        {
+            return _MusteriDal.List();
         }
 
 

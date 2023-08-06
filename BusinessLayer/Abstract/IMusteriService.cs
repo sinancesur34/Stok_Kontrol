@@ -8,11 +8,9 @@ using System.Threading.Tasks;
 
 namespace BusinessLayer.Abstract
 {
-    public interface IKategoriService
-
+    public interface IMusteriService
     {
-        List<Kategori> GetList();
-        void KategoriAdd(Kategori Kategori);
-
-    } 
+        List<Musteri> GetList();
+        void MusteriAdd(Musteri Musteri);
+    }
 }

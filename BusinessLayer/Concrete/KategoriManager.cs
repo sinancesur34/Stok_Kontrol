@@ -23,9 +23,9 @@ namespace BusinessLayer.Concrete
         }
 
 
-        public void KategoriAdd(Kategori kategori)
+        public void KategoriAdd(Kategori Kategori)
         {
-            _KategoriDal.Insert(kategori);
+            _KategoriDal.Insert(Kategori);
         }
 
         public List<Kategori> GetList()

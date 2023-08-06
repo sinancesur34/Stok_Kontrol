@@ -8,11 +8,9 @@ using System.Threading.Tasks;
 
 namespace BusinessLayer.Abstract
 {
-    public interface IKategoriService
-
+    public interface ISatisService
     {
-        List<Kategori> GetList();
-        void KategoriAdd(Kategori Kategori);
-
-    } 
+        List<Satis> GetList();
+        void SatisAdd(Satis Satis);
+    }
 }

@@ -59,7 +59,7 @@
     <Compile Include="Concrete\Context.cs" />
     <Compile Include="Concrete\Repository\GenericRepository.cs" />
     <Compile Include="EntityFramework\EFMusteriDal.cs" />
-    <Compile Include="EntityFramework\EFSatis.cs" />
+    <Compile Include="EntityFramework\EFSatisDal.cs" />
     <Compile Include="EntityFramework\EFUrunDal.cs" />
     <Compile Include="EntityFramework\EFKategoriDal.cs" />
     <Compile Include="Migrations\Configuration.cs" />

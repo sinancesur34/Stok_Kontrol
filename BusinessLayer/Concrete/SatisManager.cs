@@ -1,4 +1,6 @@
-﻿using DataAccessLayer.Concrete.Repositories;
+﻿using BusinessLayer.Abstract;
+using DataAccessLayer.Abstract;
+using DataAccessLayer.Concrete.Repositories;
 using EntityLayer.Concrete;
 using System;
 using System.Collections.Generic;
@@ -8,17 +10,27 @@ using System.Threading.Tasks;
 
 namespace BusinessLayer.Concrete
 {
-    public class SatisManager
+    public class SatisManager:ISatisService
     {
-        GenericRepository<Satis> repo = new GenericRepository<Satis>();
+        ISatisDal _SatisDal;
 
-        public List<Satis> GetAllBl()
+
+
+        public SatisManager(ISatisDal SatisDal)
         {
-            return repo.List();
+            _SatisDal = SatisDal;
         }
-        public void SatisAddBL(Satis p)
+
+
+        public void SatisAdd(Satis Satis)
         {
-            repo.Insert(p);
+            _SatisDal.Insert(Satis);
+        }
+
+        public List<Satis> GetList()
+        {
+            return _SatisDal.List();
+            //repo.Insert(p);
             //if (p.CategoryName == "" || p.CategoryName.Length <= 3 ||
             //   p.CategoryDescription == "" || p.CategoryName.Length >= 51)
             //{
