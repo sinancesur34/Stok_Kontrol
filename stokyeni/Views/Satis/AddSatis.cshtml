@@ -1,8 +1,29 @@
-﻿@{
+﻿@model EntityLayer.Concrete.Satis
+@{
     Layout = "~/Views/Shared/_Layout.cshtml";
 
 }
 <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+
+@using (Html.BeginForm("AddSatis", "Satis", FormMethod.Post))
+
+
+
+{
+    <div class="form-group">
+
+        @Html.Label("Müşteri ")
+        @Html.TextBoxFor(x => x.MusteriID)
+        @Html.ValidationMessageFor(x => x.MusteriID)
+        <br /><br />
+        @Html.Label("Ürün")
+        @Html.TextBoxFor(x => x.UrunID)
+        @Html.ValidationMessageFor(x => x.UrunID)
+
+        <button>Kaydet</button>
+    </div>
+}
+@*<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
 <form class="form-group" method="post">
 
     <div style="margin-top:10px">
@@ -28,4 +49,4 @@
 
     </div>
 
-</form>
+/form>*@

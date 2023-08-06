@@ -1,4 +1,6 @@
-﻿using DataAccessLayer.Concrete.Repositories;
+﻿using BusinessLayer.Abstract;
+using DataAccessLayer.Abstract;
+using DataAccessLayer.Concrete.Repositories;
 using EntityLayer.Concrete;
 using System;
 using System.Collections.Generic;
@@ -8,17 +10,27 @@ using System.Threading.Tasks;
 
 namespace BusinessLayer.Concrete
 {
-    public class UrunManager
+    public class UrunManager : IUrunService
     {
-        GenericRepository<Urun> repo = new GenericRepository<Urun>();
+        IUrunDal _UrunDal;
 
-        public List<Urun> GetAllBl()
+
+
+        public UrunManager(IUrunDal UrunDal)
         {
-            return repo.List();
+            _UrunDal = UrunDal;
         }
-        public void UrunAddBL(Urun p)
+
+
+        public void UrunAdd(Urun Urun)
         {
-            repo.Insert(p);
+            _UrunDal.Insert(Urun);
+        }
+
+        public List<Urun> GetList()
+        {
+            return _UrunDal.List();
+            //repo.Insert(p);
             //if (p.CategoryName == "" || p.CategoryName.Length <= 3 ||
             //   p.CategoryDescription == "" || p.CategoryName.Length >= 51)
             //{
@@ -35,3 +47,32 @@ namespace BusinessLayer.Concrete
 
     }
 }
+
+
+//    public class UrunManager
+//    {
+//        GenericRepository<Urun> repo = new GenericRepository<Urun>();
+
+//        public List<Urun> GetAllBl()
+//        {
+//            return repo.List();
+//        }
+//        public void UrunAddBL(Urun p)
+//        {
+//            repo.Insert(p);
+//            //if (p.CategoryName == "" || p.CategoryName.Length <= 3 ||
+//            //   p.CategoryDescription == "" || p.CategoryName.Length >= 51)
+//            //{
+//            //    //hata mesajı
+//            //}
+//            //else
+//            //{
+
+//            //}
+//        }
+
+
+//        //ctrl+k+d   satırları düzenlemeye yarıyor
+
+//    }
+//}

@@ -62,8 +62,8 @@ namespace tekrar_100ders.Controllers
                 }
             }
 
-          
-            return RedirectToAction("GetCategoryList");
+
+            return View(); /*RedirectToAction("GetCategoryList");*/
         }
 
     } 

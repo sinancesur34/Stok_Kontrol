@@ -1,10 +1,84 @@
-﻿@{
-    Layout = "~/Views/Shared/_Layout.cshtml";
+﻿<style>
+    .form-group {
+        margin-bottom: 20px;
+    }
 
-    // ViewBag.dgr'den SelectList oluşturuluyor
-    //var selectList = new SelectList((List<SelectListItem>)ViewBag.dgr, "Value", "Text");
+    label {
+        display: inline-block;
+        width: 150px;
+        font-weight: bold;
+    }
+
+    input[type="text"], select {
+        width: 300px;
+        padding: 5px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+
+    button {
+        padding: 8px 16px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+</style>
+
+@model EntityLayer.Concrete.Urun
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
+
 <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+
+@using (Html.BeginForm("AddUrun", "Urun", FormMethod.Post))
+{
+    <h2>Ürün ekle</h2>
+    <div class="form-group">
+        <label>Urun Ad</label>
+        @Html.TextBoxFor(x => x.UrunAd)
+        @Html.ValidationMessageFor(x => x.UrunAd)
+        <br /><br />
+
+        <label>Fiyat</label>
+        @Html.TextBoxFor(x => x.Fiyat)
+        @Html.ValidationMessageFor(x => x.Fiyat)
+        <br /><br />
+
+        <label>Kategori</label>
+        @Html.TextBoxFor(x => x.KategoriID)
+        @Html.ValidationMessageFor(x => x.KategoriID)
+        <br /><br />
+
+        <label>Marka</label>
+        <select id="Marka" name="Marka">
+            <option value="">Seçiniz</option>
+            <option value="Vestel">Vestel</option>
+            <option value="Arçelik">Arçelik</option>
+            <option value="Bosch">Bosch</option>
+            <option value="Regal">Regal</option>
+        </select>
+        @Html.ValidationMessageFor(x => x.Marka)
+        <br /><br />
+
+        <label>Stok</label>
+        @Html.TextBoxFor(x => x.Stok)
+        @Html.ValidationMessageFor(x => x.Stok)
+
+        <br /><br />
+        <button>Kaydet</button>
+    </div>
+}
+<h4>Don't tell them what you're doing, show them what you've done.</h4>
+<h6>What matters is not how much you can memorize, but how much you understand.</h6>
+
+<!--<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
 <form class="form-group" method="post">
 
     <div style="margin-top:10px">
@@ -29,9 +103,9 @@
         <br />
         <label>
             &nbsp;&nbsp; Kategori
-            <input style="margin-left:10px" type="text" class="form-control" name="KategoriID" />
-            @*@Html.DropDownListFor(m => m. KategoriAd, selectList, new { @class = "form-control" })*@
-        </label>
+            <input style="margin-left:10px" type="text" class="form-control" name="KategoriID" />-->
+@*@Html.DropDownListFor(m => m. KategoriAd, selectList, new { @class = "form-control" })*@
+<!--</label>
 
         <br />
         <br />
@@ -54,4 +128,4 @@
 
     </div>
 
-</form>
+</form>-->
