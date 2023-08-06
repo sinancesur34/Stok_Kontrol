@@ -1,0 +1,1 @@
+### Api kavramı nedir? Endpoint kavramı nedir?
