@@ -1,0 +1,29 @@
+﻿@using EntityLayer.Concrete
+@model List<Kategori>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br /><center><h2>Kategori Listeleme Sayfası</h2></center>
+      <div style="margin-top:20px;">
+          </div>
+          <table class="table table-hover">
+              <tr>
+                  <th>KategoriID</th>
+                  <th>Kategori Adı</th>
+
+              </tr>
+
+              @foreach (var item in Model)
+              {
+
+                  <tr>
+                      <td>@item.KategoriID</td>
+                      <td>@item.KategoriAd</td>
+
+                  </tr>
+              }
+          </table>
+
+          <a href="/Category/AddCategory" class="btn btn-info">Yeni Kategori</a>
