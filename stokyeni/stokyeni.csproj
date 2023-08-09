@@ -2297,6 +2297,7 @@
     <Content Include="Views\Musteri\GetMusteriList.cshtml" />
     <Content Include="Views\Shared\_AdminLayout.cshtml" />
     <Content Include="Views\AdminKategori\Index.cshtml" />
+    <Content Include="Views\AdminKategori\AddCategory.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -7,33 +7,35 @@
 
 <h3>Ürünler</h3>
 <br />
-<table class="table table-hover">
-    <tr>
-        <th></th>
-        <th>Ürün ID</th>
-        <th>Ürün Adı</th>
-        <th>Fiyat</th>
-        <th>Kategori</th>
-        <th>Marka</th>
-        <th>Stok</th>
-
-
-    </tr>
-
-    @foreach (var item in Model)
-    {
-
+<div>
+    <table class="table table-hover">
         <tr>
-            <td><input type="checkbox" class="table-checkbox" value="1"></td>
-            <td>@item.UrunID</td>
-            <td>@item.UrunAd</td>
-            <td>@item.Fiyat</td>
-            <td>@item.KategoriID</td>
-            <td>@item.Marka</td>
-            <td>@item.Stok</td>
+            <th></th>
+            <th>Ürün ID</th>
+            <th>Ürün Adı</th>
+            <th>Fiyat</th>
+            <th>Kategori</th>
+            <th>Marka</th>
+            <th>Stok</th>
+
+
         </tr>
-    }
-</table>
+
+        @foreach (var item in Model)
+        {
+
+            <tr>
+                <td><input type="checkbox" class="table-checkbox" value="1"></td>
+                <td>@item.UrunID</td>
+                <td>@item.UrunAd</td>
+                <td>@item.Fiyat</td>
+                <td>@item.KategoriID</td>
+                <td>@item.Marka</td>
+                <td>@item.Stok</td>
+            </tr>
+        }
+    </table>
+</div>
 
 <br />
 <a href="/Urun/AddUrun" class="btn btn-info">Yeni Ürün</a>

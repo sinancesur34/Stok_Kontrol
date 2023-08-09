@@ -12,7 +12,11 @@ namespace BusinessLayer.Abstract
 
     {
         List<Kategori> GetList();
-        void KategoriAdd(Kategori Kategori);
 
-    } 
+
+        void KategoriAdd(Kategori kategori);
+    
+    }
+
 }
+
