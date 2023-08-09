@@ -19,7 +19,7 @@ namespace tekrar_100ders.Controllers
     public class CategoryController : Controller
     {
 
-        KategoriManager cm = new KategoriManager(new EFKategoriDal()); 
+        KategoriManager km = new KategoriManager(new EFKategoriDal()); 
 
         // GET: Category
         public ActionResult Index()
@@ -29,7 +29,7 @@ namespace tekrar_100ders.Controllers
 
         public ActionResult GetCategoryList()
         {
-            var categoryvalues = cm.GetList();
+            var categoryvalues = km.GetList();
             return View(categoryvalues);
         }
 
@@ -43,13 +43,13 @@ namespace tekrar_100ders.Controllers
         public ActionResult AddCategory(Kategori p)
         {
             //cm.EFKategoriService(p);
-            KategoriValidator KategoriValidator = new KategoriValidator();
-            ValidationResult results = KategoriValidator.Validate(p);
+            KategoriValidator kategoriValidator = new KategoriValidator();
+            ValidationResult results = kategoriValidator.Validate(p);
 
 
             if(results.IsValid)
                 {
-                cm.KategoriAdd(p);
+                km.KategoriAdd(p);
                 return RedirectToAction("GetCategoryList");
             }
             else

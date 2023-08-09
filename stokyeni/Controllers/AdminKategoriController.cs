@@ -1,9 +1,14 @@
 ﻿using BusinessLayer.Concrete;
+using BusinessLayer.ValidationRulers_fluentValidation;
 using DataAccessLayer.EntityFramework;
+using EntityLayer.Concrete;
+using FluentValidation.Results;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Web;
+using System.Web.Helpers;
 using System.Web.Mvc;
 
 namespace stokyeni.Controllers
@@ -17,6 +22,35 @@ namespace stokyeni.Controllers
         {
             var Kategorivalues = km.GetList();
             return View(Kategorivalues);
+        }
+
+        [HttpGet]
+        public ActionResult AddCategory()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult AddCategory(Kategori p)
+        { 
+            KategoriValidator KategoriValidator = new KategoriValidator();
+            ValidationResult results = KategoriValidator.Validate(p);
+            if (results.IsValid)
+            {
+
+                km.KategoriAdd(p);
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                
+                    foreach(var item in results.Errors)
+                {
+                    ModelState.AddModelError(item.PropertyName,item.ErrorMessage);
+                }
+
+            }
+            return View();
         }
     }
 }
