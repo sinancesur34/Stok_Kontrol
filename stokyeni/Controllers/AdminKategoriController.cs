@@ -52,5 +52,12 @@ namespace stokyeni.Controllers
             }
             return View();
         }
+        public  ActionResult DeleteKategori(int id) //ayrı bir sayfa yapmayacagız indexte sil yapacagız.
+        {
+        var kategorivalue=km.GetByID(id);
+            km.KategoriDelete(kategorivalue);
+            return RedirectToAction("index"); 
+        }
+        //public ActionResult EditCategory() { }
     }
 }

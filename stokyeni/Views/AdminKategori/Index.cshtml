@@ -14,25 +14,32 @@
 </style>
 
 <br /><center><h2>Kategori Listeleme Sayfası</h2></center>
-      <div>
+<div>
+    <form method="post" action="/AdminKategori/index">
+        <table class="table container">
+            <tr>
+              
+                <th>KategoriID</th>
+                <th>Kategori Adı</th>
+                <th>-</th>
+                <th>-</th>
+            </tr>
 
-          <table class="table container">
-              <tr>
-                  <th>KategoriID</th>
-                  <th>Kategori Adı</th>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    
+                    <th>@item.KategoriID</th>
+                    <td>@item.KategoriAd</td>
 
-              </tr>
+                    <td><a href="/AdminKategori/DeleteKategori/@item.KategoriID" class="btn btn-danger">Kategori sil</a></td>
+                    <td><a href="/AdminKategori//@item.KategoriID" class="btn btn-success">Kategori güncelle</a></td>
 
-              @foreach (var item in Model)
-              {
+                </tr>
+            }
+        </table>
 
-                  <tr>
-                      <td>@item.KategoriID</td>
-                      <td>@item.KategoriAd</td>
-
-                  </tr>
-              }
-          </table>
-      </div>
-          <a href="/AdminKategori/AddCategory" style="margin-left:20px;" class="btn btn-info">Yeni Kategori</a>
+    </form>
+</div>
+<a href="/AdminKategori/AddCategory" @*/@item.KategoriID"*@ style="margin-left:20px;" class="btn btn-info">Yeni Kategori</a>
 <br />
