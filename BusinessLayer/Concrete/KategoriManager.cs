@@ -4,6 +4,7 @@ using DataAccessLayer.Concrete.Repositories;
 using EntityLayer.Concrete;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.Design;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,9 +24,9 @@ namespace BusinessLayer.Concrete
         }
 
 
-        public void KategoriAdd(Kategori Kategori)
+        public void KategoriAdd(Kategori kategori)
         {
-            _KategoriDal.Insert(Kategori);
+            _KategoriDal.Insert(kategori);
         }
 
         public List<Kategori> GetList()
@@ -33,6 +34,19 @@ namespace BusinessLayer.Concrete
             return _KategoriDal.List();
         }
 
+        public Kategori GetByID(int id)
+        {
+            return _KategoriDal.Get(x => x.KategoriID == id); //kategori değerim ıd ile eşit olmalı. Lamda 
+        }
 
+        public void KategoriDelete(Kategori kategori)
+        {
+            _KategoriDal.Delete(kategori);
+        }
+
+        public void KategoriUpdate(Kategori kategori)
+        {
+            _KategoriDal.Update(kategori);
+        }
     }
 }

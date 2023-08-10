@@ -15,7 +15,11 @@ namespace BusinessLayer.Abstract
 
 
         void KategoriAdd(Kategori kategori);
-    
+
+        Kategori GetByID(int id); //getByID terimi genellikle bir nesnenin veya kaydın benzersiz kimliğini temel alarak veritabanından veya bir veri kaynağından belirli bir öğeyi almak veya getirmek için kullanılan bir fonksiyon veya yöntemi ifade eder.
+                                  //bunu buraya tanımladıktan sonra kategori managerde de implement etmemiz gerek.
+        void KategoriDelete(Kategori kategori);
+        void KategoriUpdate(Kategori kategori);
     }
 
 }

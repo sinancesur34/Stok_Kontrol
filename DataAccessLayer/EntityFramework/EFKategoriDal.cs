@@ -11,5 +11,6 @@ namespace DataAccessLayer.EntityFramework
 {
     public class EFKategoriDal:GenericRepository<Kategori>,IKategoriDal
     {
+     
     }
 }
