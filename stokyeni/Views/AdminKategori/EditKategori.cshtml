@@ -1,0 +1,26 @@
+﻿@model EntityLayer.Concrete.Kategori
+@{
+    ViewBag.Title = "EditKategori";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>EditKategori</h2>
+@using (Html.BeginForm("EditKategori", "AdminKategori", FormMethod.Post))
+{
+    <div class="form-group">
+
+        @Html.Label("Kategori ıd")
+        @Html.TextBoxFor(x => x.KategoriID, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.KategoriID)
+        <br /> <br />
+        @Html.Label("Kategori Adı")
+        @Html.TextBoxFor(x => x.KategoriAd, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.KategoriAd)
+        <br /><br />
+
+        <button>Kaydet</button>
+    </div>
+
+
+
+}

@@ -7,7 +7,8 @@ using System.Threading.Tasks;
 
 namespace DataAccessLayer.Abstract
 {
-    public interface IKategoriDal:IRepository<Kategori>
+    public interface IKategoriDal : IRepository<Kategori>
     {
+        void Update(Kategori kategori);
     }
 }

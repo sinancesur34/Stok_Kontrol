@@ -32,7 +32,7 @@ namespace stokyeni.Controllers
 
         [HttpPost]
         public ActionResult AddCategory(Kategori p)
-        { 
+        {
             KategoriValidator KategoriValidator = new KategoriValidator();
             ValidationResult results = KategoriValidator.Validate(p);
             if (results.IsValid)
@@ -43,21 +43,34 @@ namespace stokyeni.Controllers
             }
             else
             {
-                
-                    foreach(var item in results.Errors)
+
+                foreach (var item in results.Errors)
                 {
-                    ModelState.AddModelError(item.PropertyName,item.ErrorMessage);
+                    ModelState.AddModelError(item.PropertyName, item.ErrorMessage);
                 }
 
             }
             return View();
         }
-        public  ActionResult DeleteKategori(int id) //ayrı bir sayfa yapmayacagız indexte sil yapacagız.
+        public ActionResult DeleteKategori(int id) //ayrı bir sayfa yapmayacagız indexte sil yapacagız.
         {
-        var kategorivalue=km.GetByID(id);
+            var kategorivalue = km.GetByID(id);
             km.KategoriDelete(kategorivalue);
-            return RedirectToAction("index"); 
+            return RedirectToAction("index"); //indexe gönderdik
         }
-        //public ActionResult EditCategory() { }
+
+        [HttpGet]
+        public ActionResult EditKategori(int id)
+        {
+            var kategorivalue = km.GetByID(id);
+            return View(kategorivalue);
+        }
+
+        [HttpPost]
+        public ActionResult EditKategori(Kategori p)
+        {
+            km.KategoriUpdate(p);
+            return RedirectToAction("index");
+        }
     }
 }
