@@ -27,8 +27,13 @@ namespace DataAccessLayer.Concrete.Repositories
 
         public void Delete(T p)
         {
-            _object.Remove(p);
+            
+            var deletedEntity = c.Entry(p);
+            deletedEntity.State = EntityState.Deleted;
             c.SaveChanges();
+
+            //_object.Remove(p);
+            //c.SaveChanges();    böyle bir yapıya devam etmememizin sebebi :EntityState yapısı, bir nesnenin durumunu belirlemek için kullanılır. Bu yapının kullanımı, varolan nesnelerin veritabanı durumunu güncellemek veya silmek gibi işlemler için daha uygundur.
         }
 
         public T Get(Expression<Func<T, bool>> filter)
@@ -39,8 +44,14 @@ namespace DataAccessLayer.Concrete.Repositories
 
         public void Insert(T p)
         {
-            _object.Add(p);
+
+            var addedEntity = c.Entry(p);
+            addedEntity.State = EntityState.Added;
             c.SaveChanges();
+
+
+            //_object.Add(p);
+            //c.SaveChanges();    böyle bir yapıya devam etmememizin sebebi :EntityState yapısı, bir nesnenin durumunu belirlemek için kullanılır. Bu yapının kullanımı, varolan nesnelerin veritabanı durumunu güncellemek veya silmek gibi işlemler için daha uygundur.
         }
 
         public List<T> List()
@@ -57,6 +68,8 @@ namespace DataAccessLayer.Concrete.Repositories
 
         public void Update(T p)
         {
+            var updateEntity = c.Entry(p);
+            updateEntity.State = EntityState.Modified; //biçimlendir demek update yerine kullanılır.
             c.SaveChanges();
         }
     }
