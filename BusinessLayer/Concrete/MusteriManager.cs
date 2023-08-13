@@ -4,6 +4,7 @@ using DataAccessLayer.Concrete.Repositories;
 using EntityLayer.Concrete;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.Design;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -31,6 +32,21 @@ namespace BusinessLayer.Concrete
         public List<Musteri> GetList()
         {
             return _MusteriDal.List();
+        }
+
+        public void MusteriDelete(Musteri musteri)
+        {
+            _MusteriDal.Delete(musteri);    
+        }
+
+        public void MusteriUpdate(Musteri musteri)
+        {
+            _MusteriDal.Update(musteri);
+        }
+
+        public Musteri GetByID(int id)
+        {
+            return _MusteriDal.Get(x => x.MusteriID == id);
         }
 
 

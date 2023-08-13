@@ -1,6 +1,7 @@
 ﻿using BusinessLayer.Abstract;
 using DataAccessLayer.Abstract;
 using DataAccessLayer.Concrete.Repositories;
+using DataAccessLayer.EntityFramework;
 using EntityLayer.Concrete;
 using System;
 using System.Collections.Generic;
@@ -40,6 +41,21 @@ namespace BusinessLayer.Concrete
             //{
 
             //}
+        }
+
+        public void SatisDelete(Satis satis)
+        {
+           _SatisDal.Delete(satis);
+        }
+
+        public void SatisUpdate(Satis satis)
+        {
+           _SatisDal.Update(satis);
+        }
+
+        public Satis GetByID(int id)
+        {
+            return _SatisDal.Get(x => x.SatisID == id);
         }
 
 

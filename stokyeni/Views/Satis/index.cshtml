@@ -1,0 +1,39 @@
+﻿@using EntityLayer.Concrete
+@model List<Satis>
+@{
+    ViewBag.Title = "index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+<br />
+<center><h2>Satış Listesi</h2></center>
+<br />
+<form method="post" action="/Musteri/index">
+    <table class="table table-hover">
+        <tr>
+            <th>Satış ID</th>
+            <th>MÜşteri ID</th>
+            <th>Ürün ID</th>
+            <th></th>
+            <th></th>
+
+        </tr>
+
+        @foreach (var item in Model)
+        {
+
+            <tr>
+                <td>@item.SatisID</td>
+                <td>@item.MusteriID</td>
+                <td>@item.UrunID</td>
+
+                <td><a href="/Musteri/DeleteMusteri/@item.SatisID" class="btn btn-danger">Satış sil</a></td>
+                <td><a href="/Musteri/EditMusteri/@item.SatisID" class="btn btn-success">Satış güncelle</a></td>
+
+
+            </tr>
+        }
+    </table>
+</form>
+<br />
+<a href="/Satis/AddSatis" style="margin-left:20px;" class="btn btn-info">Yeni Satış</a>

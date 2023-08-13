@@ -4,8 +4,8 @@
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
-
-
+<br />
+<center><h2>Kategori Ekleme Sayfası</h2></center>
 @using (Html.BeginForm("AddCategory", "AdminKategori", FormMethod.Post))
 
 
@@ -14,10 +14,19 @@
     <div class="form-group">
 
         @Html.Label("Kategori Adı")
-        @Html.TextBoxFor(x => x.KategoriAd, new {@class="form-control"})
+        @Html.TextBoxFor(x => x.KategoriAd, new { @class = "form-control" })
         @Html.ValidationMessageFor(x => x.KategoriAd)
-        <br /><br />
+        <br />
 
-        <button>Kaydet</button>
+        <button id="kaydetButton">Kaydet</button>
+
+        <script>
+    var kaydetButton = document.getElementById("kaydetButton");
+    kaydetButton.style.backgroundColor = "#000000";
+    kaydetButton.style.color = "white";
+    kaydetButton.style.border = "none";
+    kaydetButton.style.padding = "10px 20px";
+    kaydetButton.style.borderRadius = "5px";
+        </script>
     </div>
 }

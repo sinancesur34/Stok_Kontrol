@@ -2291,14 +2291,16 @@
     <Content Include="Views\Category\AddCategory.cshtml" />
     <Content Include="Views\Urun\GetUrunList.cshtml" />
     <Content Include="Views\Urun\AddUrun.cshtml" />
-    <Content Include="Views\Satis\GetSatisList.cshtml" />
+    <Content Include="Views\Satis\index.cshtml" />
     <Content Include="Views\Satis\AddSatis.cshtml" />
     <Content Include="Views\Musteri\AddMusteri.cshtml" />
-    <Content Include="Views\Musteri\GetMusteriList.cshtml" />
+    <Content Include="Views\Musteri\Index.cshtml" />
     <Content Include="Views\Shared\_AdminLayout.cshtml" />
     <Content Include="Views\AdminKategori\Index.cshtml" />
     <Content Include="Views\AdminKategori\AddCategory.cshtml" />
     <Content Include="Views\AdminKategori\EditKategori.cshtml" />
+    <Content Include="Views\Musteri\EditMusteri.cshtml" />
+    <Content Include="Views\Satis\EditSatis.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

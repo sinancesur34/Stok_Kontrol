@@ -9,5 +9,6 @@ namespace DataAccessLayer.Abstract
 {
     public interface ISatisDal: IRepository<Satis>
     {
+        void Update(Satis satis);
     }
 }

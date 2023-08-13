@@ -1,0 +1,41 @@
+﻿@using EntityLayer.Concrete
+@model List<Musteri>
+@{
+    ViewBag.Title = "index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+<br />
+<center><h2>Müşteri Listesi</h2></center>
+<br />
+<form method="post" action="/Musteri/index">
+    <table class="table table-hover">
+        <tr>
+            <th> &nbsp &nbsp MüsteriID</th>
+            <th>Müşteri Adı</th>
+            <th>Müşteri Soyadı</th>
+            <th>Müşteri TCKN</th>
+            <th></th>
+            <th></th>
+
+        </tr>
+
+        @foreach (var item in Model)
+        {
+
+            <tr>
+                <td> &nbsp &nbsp @item.MusteriID</td>
+                <td>@item.MusteriAd</td>
+                <td>@item.MusteriSoyad</td>
+                <td>@item.MusteriTCKN</td>
+
+                <td><a href="/Musteri/DeleteMusteri/@item.MusteriID" class="btn btn-danger">Müşteri sil</a></td>
+                <td><a href="/Musteri/EditMusteri/@item.MusteriID" class="btn btn-success">Müşteri güncelle</a></td>
+
+
+            </tr>
+        }
+    </table>
+    </form>
+    <br />
+    <a href="/Musteri/AddMusteri" style="margin-left:20px;" class="btn btn-info">Yeni Müşteri</a>

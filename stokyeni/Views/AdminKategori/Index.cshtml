@@ -13,7 +13,7 @@
     }
 </style>
 
-<br /><center><h2>Kategori Listeleme Sayfası</h2></center>
+<br /><center><h2>Admin Kategori Listesi</h2></center>
 <div>
     <form method="post" action="/AdminKategori/index">
         <table class="table container">
@@ -21,15 +21,15 @@
               
                 <th>KategoriID</th>
                 <th>Kategori Adı</th>
-                <th>-</th>
-                <th>-</th>
+                <th></th>
+                <th></th>
             </tr>
 
             @foreach (var item in Model)
             {
                 <tr>
                     
-                    <th>@item.KategoriID</th>
+                    <td>@item.KategoriID</td>
                     <td>@item.KategoriAd</td>
 
                     <td><a href="/AdminKategori/DeleteKategori/@item.KategoriID" class="btn btn-danger">Kategori sil</a></td>
@@ -42,4 +42,4 @@
     </form>
 </div>
 <a href="/AdminKategori/AddCategory"@*/@item.KategoriID"*@ style="margin-left:20px;" class="btn btn-info">Yeni Kategori</a>
-<br />
+<br /><br /><br /><br /><br /><br /><br />

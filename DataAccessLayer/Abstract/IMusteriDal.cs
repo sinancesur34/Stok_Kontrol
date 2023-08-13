@@ -9,5 +9,6 @@ namespace DataAccessLayer.Abstract
 {
     public interface IMusteriDal:IRepository<Musteri>
     {
+        void Update(Musteri musteri);
     }
 }

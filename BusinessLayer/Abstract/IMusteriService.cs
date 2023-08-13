@@ -11,6 +11,9 @@ namespace BusinessLayer.Abstract
     public interface IMusteriService
     {
         List<Musteri> GetList();
-        void MusteriAdd(Musteri Musteri);
+        void MusteriAdd(Musteri musteri);
+        void MusteriDelete(Musteri musteri);
+        void MusteriUpdate(Musteri musteri);    
+        Musteri GetByID(int id); 
     }
 }

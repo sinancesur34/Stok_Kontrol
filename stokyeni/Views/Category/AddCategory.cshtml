@@ -13,7 +13,7 @@
                 <div class="form-group">
 
                     @Html.Label("Kategori Adı")
-                    @Html.TextBoxFor(x=>x.KategoriAd)
+                    @Html.TextBoxFor(x=>x.KategoriAd, new { @class = "form-control" })
                     @Html.ValidationMessageFor(x=>x.KategoriAd)
                     <br /><br />
 
