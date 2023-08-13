@@ -22,15 +22,15 @@ namespace tekrar_100ders.Controllers
         SatisManager sm = new SatisManager(new EFSatisDal());
 
         // GET: Category
+        //public ActionResult Index()
+        //{
+        //    return View();
+        //}
+
         public ActionResult Index()
         {
-            return View();
-        }
-
-        public ActionResult GetSatisList()
-        {
-            var satisvalues = sm.GetList();
-            return View(satisvalues);
+            var Satisvalues = sm.GetList();
+            return View(Satisvalues);
         }
 
         [HttpGet]
@@ -50,7 +50,7 @@ namespace tekrar_100ders.Controllers
             if (results.IsValid)
             {
                 sm.SatisAdd(p);
-                return RedirectToAction("GetSatisList");
+                return RedirectToAction("index");
             }
             else
 
@@ -64,10 +64,66 @@ namespace tekrar_100ders.Controllers
 
 
             return View(); /*RedirectToAction("GetCategoryList");*/
+
+        }
+        public ActionResult DeleteSatis(int id) //ayrı bir sayfa yapmayacagız indexte sil yapacagız.
+        {
+            var satisvalue = sm.GetByID(id);
+            sm.SatisDelete(satisvalue);
+            return RedirectToAction("index"); //indexe gönderdik
         }
 
+        [HttpGet]
+        public ActionResult EditSatis(int id)
+        {
+            var satisvalue = sm.GetByID(id);
+            return View(satisvalue);
+        }
+
+        [HttpPost]
+        public ActionResult EditSatis(Satis p)
+        {
+            sm.SatisUpdate(p);
+            return RedirectToAction("index");
+        }
     }
 }
 
+
+
+
+
+
+
+
+
+
+//// GET: Category
+//public ActionResult Index()
+//{
+//    return View();
+//}
+
+//public ActionResult GetSatisList()
+//{
+//    var Satisvalues = mum.GetAll();
+//    return View(Satisvalues);
+//}
+
+//[HttpGet]
+//public ActionResult AddSatis()
+//{
+//    return View();
+//}
+
+//[HttpPost]
+//public ActionResult AddSatis(Satis p)
+//{
+//    mum.SatisAdd(p);
+//    return RedirectToAction("GetSatisList");
+//        }
+
+//    }
+//}
 
 

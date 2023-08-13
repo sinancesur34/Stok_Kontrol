@@ -9,5 +9,6 @@ namespace DataAccessLayer.Abstract
 {
     public interface IUrunDal: IRepository<Urun>
     {
+        void Update(Urun urun);
     }
 }

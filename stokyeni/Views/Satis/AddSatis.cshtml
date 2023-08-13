@@ -1,10 +1,11 @@
 ﻿@model EntityLayer.Concrete.Satis
 @{
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
 
 }
 <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
-
+<br />
+<center><h2>Satiş Ekleme Sayfası</h2></center>
 @using (Html.BeginForm("AddSatis", "Satis", FormMethod.Post))
 
 
@@ -12,15 +13,27 @@
 {
     <div class="form-group">
 
+    
+
+        <br /><br />
         @Html.Label("Müşteri ")
-        @Html.TextBoxFor(x => x.MusteriID)
+        @Html.TextBoxFor(x => x.MusteriID, new { @class = "form-control" })
         @Html.ValidationMessageFor(x => x.MusteriID)
         <br /><br />
         @Html.Label("Ürün")
-        @Html.TextBoxFor(x => x.UrunID)
+        @Html.TextBoxFor(x => x.UrunID, new { @class = "form-control" })
         @Html.ValidationMessageFor(x => x.UrunID)
+        <br />
+        <button id="kaydetButton">Kaydet</button>
 
-        <button>Kaydet</button>
+        <script>
+            var kaydetButton = document.getElementById("kaydetButton");
+            kaydetButton.style.backgroundColor = "#000000";
+            kaydetButton.style.color = "white";
+            kaydetButton.style.border = "none";
+            kaydetButton.style.padding = "10px 20px";
+            kaydetButton.style.borderRadius = "5px";
+        </script>
     </div>
 }
 @*<link href="~/Content/bootstrap.min.css" rel="stylesheet" />

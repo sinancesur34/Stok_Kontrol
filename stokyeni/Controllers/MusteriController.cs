@@ -27,7 +27,7 @@ namespace tekrar_100ders.Controllers
         //    return View();
         //}
 
-        public ActionResult GetMusteriList()
+        public ActionResult Index()
         {
             var Musterivalues = mum.GetList();
             return View(Musterivalues);
@@ -50,7 +50,7 @@ namespace tekrar_100ders.Controllers
             if (results.IsValid)
             {
                 mum.MusteriAdd(p);
-                return RedirectToAction("GetMusteriList");
+                return RedirectToAction("index");
             }
             else
 
@@ -64,8 +64,28 @@ namespace tekrar_100ders.Controllers
 
 
             return View(); /*RedirectToAction("GetCategoryList");*/
+
+        }
+        public ActionResult DeleteMusteri(int id) //ayrı bir sayfa yapmayacagız indexte sil yapacagız.
+        {
+            var musterivalue = mum.GetByID(id);
+            mum.MusteriDelete(musterivalue);
+            return RedirectToAction("index"); //indexe gönderdik
         }
 
+        [HttpGet]
+        public ActionResult EditMusteri(int id)
+        {
+            var musterivalue = mum.GetByID(id);
+            return View(musterivalue);
+        }
+
+        [HttpPost]
+        public ActionResult EditMusteri(Musteri p)
+        {
+            mum.MusteriUpdate(p);
+            return RedirectToAction("index");
+        }
     }
 }
 

@@ -11,6 +11,9 @@ namespace BusinessLayer.Abstract
     public interface ISatisService
     {
         List<Satis> GetList();
-        void SatisAdd(Satis Satis);
+        void SatisAdd(Satis satis);
+        void SatisDelete(Satis satis);
+        void SatisUpdate(Satis satis);
+        Satis GetByID(int id);
     }
 }

@@ -1,64 +1,93 @@
 ﻿@model EntityLayer.Concrete.Musteri
 @{
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
 
 }
 <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
 
 @using (Html.BeginForm("AddMusteri", "Musteri", FormMethod.Post))
-
-
-
 {
-    <div class="form-group">
 
+    <center><h2>Müşteri Ekleme Sayfası</h2></center>
+
+
+    <div class="form-group" style="margin-left:20px">
+
+        @*@Html.Label("Musteri ID")
+            @Html.TextBoxFor(x => x.MusteriID)
+            @Html.ValidationMessageFor(x => x.MusteriID)*@
+        <br /><br />
         @Html.Label("Musteri Adı")
-        @Html.TextBoxFor(x => x.MusteriAd)
+        @Html.TextBoxFor(x => x.MusteriAd, new { @class = "form-control" })
         @Html.ValidationMessageFor(x => x.MusteriAd)
         <br /><br />
         @Html.Label("Musteri Soyadı")
-        @Html.TextBoxFor(x => x.MusteriSoyad)
+        @Html.TextBoxFor(x => x.MusteriSoyad, new { @class = "form-control" })
         @Html.ValidationMessageFor(x => x.MusteriSoyad)
         <br /><br />
         @Html.Label("Musteri TCKN")
-        @Html.TextBoxFor(x => x.MusteriTCKN)
+        @Html.TextBoxFor(x => x.MusteriTCKN, new { @class = "form-control" })
         @Html.ValidationMessageFor(x => x.MusteriTCKN)
-        <button>Kaydet</button>
+        <br /><br />
+        <button id="kaydetButton">Kaydet</button>
+
+        <script>
+    var kaydetButton = document.getElementById("kaydetButton");
+    kaydetButton.style.backgroundColor = "#000000";
+    kaydetButton.style.color = "white";
+    kaydetButton.style.border = "none";
+    kaydetButton.style.padding = "10px 20px";
+    kaydetButton.style.borderRadius = "5px";
+        </script>
     </div>
 }
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+
+
 @*<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
-<form class="form-group" method="post">
+    <form class="form-group" method="post">
 
-    <div style="margin-top:10px">
-        <center> <h2>Müşteri Ekle</h2></center>
-    </div>
-    <div>
+        <div style="margin-top:10px">
+            <center> <h2>Müşteri Ekle</h2></center>
+        </div>
+        <div>
 
 
 
-        <label>
-            &nbsp;&nbsp; Müşteri Adı
-            <input style="margin-left:10px" type="text" class="form-control" name="MusteriAd" />
-        </label>
-        <br />
-        <br />
-        <label>
-            &nbsp;&nbsp; Müşteri Soyadı
-            <input style="margin-left:10px" type="text" class="form-control" name="MusteriSoyad" />
-        </label>
+            <label>
+                &nbsp;&nbsp; Müşteri Adı
+                <input style="margin-left:10px" type="text" class="form-control" name="MusteriAd" />
+            </label>
+            <br />
+            <br />
+            <label>
+                &nbsp;&nbsp; Müşteri Soyadı
+                <input style="margin-left:10px" type="text" class="form-control" name="MusteriSoyad" />
+            </label>
 
-        <br />
-        <br />
-        <label>
-            &nbsp;&nbsp; Müşteri TCKN
-            <input style="margin-left:10px" type="text" class="form-control" name="MusteriTCKN" />
-        </label>
+            <br />
+            <br />
+            <label>
+                &nbsp;&nbsp; Müşteri TCKN
+                <input style="margin-left:10px" type="text" class="form-control" name="MusteriTCKN" />
+            </label>
 
-    </div>
-    <div style="margin-left:10px">
-        <br>
-        <button class="btn btn-info">Müşteri Ekle</button>
+        </div>
+        <div style="margin-left:10px">
+            <br>
+            <button class="btn btn-info">Müşteri Ekle</button>
 
-    </div>
+        </div>
 
-</form>*@
+    </form>*@
