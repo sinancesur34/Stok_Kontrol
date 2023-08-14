@@ -1,6 +1,7 @@
 ﻿using BusinessLayer.Abstract;
 using DataAccessLayer.Abstract;
 using DataAccessLayer.Concrete.Repositories;
+using DataAccessLayer.EntityFramework;
 using EntityLayer.Concrete;
 using System;
 using System.Collections.Generic;
@@ -42,37 +43,23 @@ namespace BusinessLayer.Concrete
             //}
         }
 
+        public void UrunDelete(Urun urun)
+        {
+            _UrunDal.Delete(urun);
+        }
+
+        public void UrunUpdate(Urun urun)
+        {
+            _UrunDal.Update(urun);
+        }
+
+        public Urun GetByID(int id)
+        {
+            return _UrunDal.Get(x => x.UrunID == id);
+        }
+
 
         //ctrl+k+d   satırları düzenlemeye yarıyor
 
     }
 }
-
-
-//    public class UrunManager
-//    {
-//        GenericRepository<Urun> repo = new GenericRepository<Urun>();
-
-//        public List<Urun> GetAllBl()
-//        {
-//            return repo.List();
-//        }
-//        public void UrunAddBL(Urun p)
-//        {
-//            repo.Insert(p);
-//            //if (p.CategoryName == "" || p.CategoryName.Length <= 3 ||
-//            //   p.CategoryDescription == "" || p.CategoryName.Length >= 51)
-//            //{
-//            //    //hata mesajı
-//            //}
-//            //else
-//            //{
-
-//            //}
-//        }
-
-
-//        //ctrl+k+d   satırları düzenlemeye yarıyor
-
-//    }
-//}

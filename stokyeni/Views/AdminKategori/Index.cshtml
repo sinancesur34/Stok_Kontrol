@@ -5,18 +5,12 @@
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
-<style>
-    .table-container {
-        width: 50%; /* Tabloyu yatayda %50 oranında küçültme */
-        overflow: hidden; /* İçeriği taşan kısımları gizleme */
-        margin: 0 auto; /* Sayfa ortalamasına göre hizalama */
-    }
-</style>
 
-<br /><center><h2>Admin Kategori Listesi</h2></center>
-<div>
+
+<br /><center><h2> Kategori Listesi</h2></center>
+<div><br />
     <form method="post" action="/AdminKategori/index">
-        <table class="table container">
+        <table class="table table-hover">
             <tr>
               
                 <th>KategoriID</th>

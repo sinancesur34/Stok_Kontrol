@@ -1,59 +1,31 @@
-﻿<style>
-    .form-group {
-        margin-bottom: 20px;
-    }
-
-    label {
-        display: inline-block;
-        width: 150px;
-        font-weight: bold;
-    }
-
-    input[type="text"], select {
-        width: 300px;
-        padding: 5px;
-        border: 1px solid #ccc;
-        border-radius: 4px;
-    }
-
-    button {
-        padding: 8px 16px;
-        background-color: #007bff;
-        color: white;
-        border: none;
-        border-radius: 4px;
-        cursor: pointer;
-    }
-
-        button:hover {
-            background-color: #0056b3;
-        }
-</style>
-
-@model EntityLayer.Concrete.Urun
+﻿@model EntityLayer.Concrete.Urun
 @{
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
 <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
 
 @using (Html.BeginForm("AddUrun", "Urun", FormMethod.Post))
 {
-    <h2>Ürün ekle</h2>
+    <br />
+    <center><h2>Ürün ekle</h2></center>
     <div class="form-group">
-        <label>Urun Ad</label>
-        @Html.TextBoxFor(x => x.UrunAd)
+        <label>Ürün Ad</label>
+        @Html.TextBoxFor(x => x.UrunAd, new { @class = "form-control" })
         @Html.ValidationMessageFor(x => x.UrunAd)
         <br /><br />
 
         <label>Fiyat</label>
-        @Html.TextBoxFor(x => x.Fiyat)
+        @Html.TextBoxFor(x => x.Fiyat, new { @class = "form-control" })
         @Html.ValidationMessageFor(x => x.Fiyat)
         <br /><br />
 
         <label>Kategori</label>
-        @Html.TextBoxFor(x => x.KategoriID)
-        @Html.ValidationMessageFor(x => x.KategoriID)
+        @Html.DropDownListFor(x=> x.KategoriID,(List<SelectListItem>)ViewBag.vlk,new
+        { @class="form-control"})
+        
+        @*@Html.TextBoxFor(x => x.KategoriID, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.KategoriID)*@   @*dışarıdan ad kısmını aldıgım için bunu kullanmıyorum*@
         <br /><br />
 
         <label>Marka</label>
@@ -68,11 +40,20 @@
         <br /><br />
 
         <label>Stok</label>
-        @Html.TextBoxFor(x => x.Stok)
+        @Html.TextBoxFor(x => x.Stok, new { @class = "form-control" })
         @Html.ValidationMessageFor(x => x.Stok)
 
         <br /><br />
-        <button>Kaydet</button>
+        <button id="kaydetButton">Kaydet</button>
+
+        <script>
+            var kaydetButton = document.getElementById("kaydetButton");
+            kaydetButton.style.backgroundColor = "#000000";
+            kaydetButton.style.color = "white";
+            kaydetButton.style.border = "none";
+            kaydetButton.style.padding = "10px 20px";
+            kaydetButton.style.borderRadius = "5px";
+        </script>
     </div>
 }
 <h4>Don't tell them what you're doing, show them what you've done.</h4>
