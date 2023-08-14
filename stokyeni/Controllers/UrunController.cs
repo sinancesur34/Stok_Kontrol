@@ -13,20 +13,22 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace stokyeni.Controllers
+
+namespace tekrar_100ders.Controllers
 {
     public class UrunController : Controller
     {
 
         UrunManager um = new UrunManager(new EFUrunDal());
+        KategoriManager km = new KategoriManager(new EFKategoriDal());   //İD ler ile isimlerini göstermek için kullanıyoruz
 
         // GET: Category
-        public ActionResult Index()
-        {
-            return View();
-        }
+        //public ActionResult Index()
+        //{
+        //    return View();
+        //}
 
-        public ActionResult GetUrunList()
+        public ActionResult Index()
         {
             var Urunvalues = um.GetList();
             return View(Urunvalues);
@@ -35,6 +37,15 @@ namespace stokyeni.Controllers
         [HttpGet]
         public ActionResult AddUrun()
         {
+            List<SelectListItem> valuekategori = (from x in km.GetList()
+                                                  select new SelectListItem
+                                                  {
+                                                      Text = x.KategoriAd,
+                                                      Value = x.KategoriID.ToString()
+
+                                                  }
+                                                ).ToList();
+            ViewBag.vlk=valuekategori;
             return View();
         }
 
@@ -49,7 +60,7 @@ namespace stokyeni.Controllers
             if (results.IsValid)
             {
                 um.UrunAdd(p);
-                return RedirectToAction("GetUrunList");
+                return RedirectToAction("index");
             }
             else
 
@@ -63,10 +74,68 @@ namespace stokyeni.Controllers
 
 
             return View(); /*RedirectToAction("GetCategoryList");*/
+
+        }
+        public ActionResult DeleteUrun(int id) //ayrı bir sayfa yapmayacagız indexte sil yapacagız.
+        {
+            var urunvalue = um.GetByID(id);
+            um.UrunDelete(urunvalue);
+            return RedirectToAction("index"); //indexe gönderdik
         }
 
+        [HttpGet]
+        public ActionResult EditUrun(int id)
+        {
+            var urunvalue = um.GetByID(id);
+            return View(urunvalue);
+        }
+
+        [HttpPost]
+        public ActionResult EditUrun(Urun p)
+        {
+            um.UrunUpdate(p);
+            return RedirectToAction("index");
+        }
     }
 }
+
+
+
+
+
+
+
+
+
+
+//// GET: Category
+//public ActionResult Index()
+//{
+//    return View();
+//}
+
+//public ActionResult GetUrunList()
+//{
+//    var Urunvalues = mum.GetAll();
+//    return View(Urunvalues);
+//}
+
+//[HttpGet]
+//public ActionResult AddUrun()
+//{
+//    return View();
+//}
+
+//[HttpPost]
+//public ActionResult AddUrun(Urun p)
+//{
+//    mum.UrunAdd(p);
+//    return RedirectToAction("GetUrunList");
+//        }
+
+//    }
+//}
+
 
 
 

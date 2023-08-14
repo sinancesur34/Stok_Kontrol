@@ -2289,7 +2289,7 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Category\GetCategoryList.cshtml" />
     <Content Include="Views\Category\AddCategory.cshtml" />
-    <Content Include="Views\Urun\GetUrunList.cshtml" />
+    <Content Include="Views\Urun\index.cshtml" />
     <Content Include="Views\Urun\AddUrun.cshtml" />
     <Content Include="Views\Satis\index.cshtml" />
     <Content Include="Views\Satis\AddSatis.cshtml" />

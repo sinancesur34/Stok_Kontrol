@@ -1,0 +1,94 @@
+﻿@using EntityLayer.Concrete
+@model List<Urun>
+@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<br />
+<center><h2>Ürün Listesi</h2></center>
+<br />
+<div>
+    <table class="table table-hover">
+        <tr>
+
+            <th>Ürün ID</th>
+            <th>Ürün Adı</th>
+            <th>Fiyat</th>
+            <th>Kategori</th>
+            <th>Marka</th>
+            <th>Stok</th>
+            <th></th>
+            <th></th>
+
+        </tr>
+
+        @foreach (var item in Model)
+        {
+
+            <tr>
+
+                <td>@item.UrunID</td>
+                <td>@item.UrunAd</td>
+                <td>@item.Fiyat</td>
+                <td>@item.KategoriID</td>
+                <td>@item.Marka</td>
+                <td>@item.Stok</td>
+                <td><a href="/Urun/DeleteUrun/@item.UrunID" class="btn btn-danger">Ürün Sil</a></td>
+                <td><a href="/Urun/UpdateUrun/@item.UrunID" class="btn btn-success">Ürün Güncelle</a></td>
+            </tr>
+        }
+    </table>
+</div>
+
+<br />
+<a href="/Urun/AddUrun" class="btn btn-info">Yeni Ürün</a>
+
+
+
+<!-- Kategori sayfasındaki tablo -->
+<!--<table>
+    <thead>
+        <tr>
+            <th>Tablo Başlık</th>
+            <th>Sil</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Tablo Veri swdsdw</td>
+            <td></td>
+        </tr>-->
+<!-- Diğer tablo satırları -->
+<!--</tbody>
+</table>-->
+<!-- Silme formu -->
+@*<form id="delete-form" action="/kategori/sil" method="POST">
+        <input type="hidden" name="table-ids" id="table-ids-input">
+        <button type="submit">Seçilenleri Sil</button>
+    </form>*@
+
+<!-- JavaScript kodu -->
+@*<script>
+        // Form submit edildiğinde
+        document.getElementById('delete-form').addEventListener('submit', function (event) {
+            event.preventDefault(); // Sayfanın yeniden yüklenmesini engelle
+
+            // Seçilen tabloların ID'lerini al
+            var tableIds = [];
+            var checkboxes = document.getElementsByClassName('table-checkbox');
+            for (var i = 0; i < checkboxes.length; i++) {
+                if (checkboxes[i].checked) {
+                    tableIds.push(checkboxes[i].value);
+                }
+            }
+
+            // ID'leri gizli alana aktar
+            document.getElementById('table-ids-input').value = tableIds.join(',');
+
+            // AJAX çağrısı yap veya formu gönder
+            // Örneğin: XMLHttpRequest veya jQuery.ajax ile sunucuya istek gönder
+
+            // AJAX çağrısından sonra sayfayı güncelleyebilirsiniz
+        });
+    </script>*@
