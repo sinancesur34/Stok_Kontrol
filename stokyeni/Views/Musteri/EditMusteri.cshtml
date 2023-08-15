@@ -30,7 +30,16 @@
         @Html.TextBoxFor(x => x.MusteriTCKN, new { @class = "form-control " })
         @Html.ValidationMessageFor(x => x.MusteriTCKN)
         <br />
-        <button>Kaydet</button>
+        <button id="kaydetButton">Kaydet</button>
+
+        <script>
+    var kaydetButton = document.getElementById("kaydetButton");
+    kaydetButton.style.backgroundColor = "#000000";
+    kaydetButton.style.color = "white";
+    kaydetButton.style.border = "none";
+    kaydetButton.style.padding = "10px 20px";
+    kaydetButton.style.borderRadius = "5px";
+        </script>
     </div>
 
 

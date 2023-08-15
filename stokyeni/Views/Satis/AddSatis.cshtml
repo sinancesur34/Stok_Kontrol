@@ -13,53 +13,55 @@
 {
     <div class="form-group">
 
-    
+
 
         <br /><br />
-        @Html.Label("Müşteri ")
-        @Html.TextBoxFor(x => x.MusteriID, new { @class = "form-control" })
-        @Html.ValidationMessageFor(x => x.MusteriID)
+        @Html.Label("Müşteri Adı")
+        @Html.DropDownListFor(x => x.MusteriID, (List<SelectListItem>)ViewBag.vlm, new
+            { @class = "form-control" })
         <br /><br />
-        @Html.Label("Ürün")
-        @Html.TextBoxFor(x => x.UrunID, new { @class = "form-control" })
-        @Html.ValidationMessageFor(x => x.UrunID)
-        <br />
+        @Html.Label("Ürün Adı")
+        @Html.DropDownListFor(x => x.UrunID, (List<SelectListItem>)ViewBag.vlu, new
+            { @class = "form-control" })
+        <br /><br />
         <button id="kaydetButton">Kaydet</button>
 
         <script>
-            var kaydetButton = document.getElementById("kaydetButton");
-            kaydetButton.style.backgroundColor = "#000000";
-            kaydetButton.style.color = "white";
-            kaydetButton.style.border = "none";
-            kaydetButton.style.padding = "10px 20px";
-            kaydetButton.style.borderRadius = "5px";
+           
+                var kaydetButton = document.getElementById("kaydetButton");
+                kaydetButton.style.backgroundColor = "#000000";
+                kaydetButton.style.color = "white";
+                kaydetButton.style.border = "none";
+                kaydetButton.style.padding = "10px 20px";
+                kaydetButton.style.borderRadius = "5px";
+           
         </script>
     </div>
 }
 @*<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
-<form class="form-group" method="post">
+    <form class="form-group" method="post">
 
-    <div style="margin-top:10px">
-        <center> <h2>Satış Ekle</h2></center>
-    </div>
-    <div>
-        <label>
-            &nbsp;&nbsp; Müşteri ID
-            <input style="margin-left:10px" type="text" class="form-control" name="MusteriID" />
-        </label>
+        <div style="margin-top:10px">
+            <center> <h2>Satış Ekle</h2></center>
+        </div>
+        <div>
+            <label>
+                &nbsp;&nbsp; Müşteri ID
+                <input style="margin-left:10px" type="text" class="form-control" name="MusteriID" />
+            </label>
 
-        <br />
-        <br />
-        <label>
-            &nbsp;&nbsp; Urun ID
-            <input style="margin-left:10px" type="text" class="form-control" name="UrunID" />
-        </label>
+            <br />
+            <br />
+            <label>
+                &nbsp;&nbsp; Urun ID
+                <input style="margin-left:10px" type="text" class="form-control" name="UrunID" />
+            </label>
 
-    </div>
-    <div style="margin-left:10px">
-        <br>
-        <button class="btn btn-info">Satış Ekle</button>
+        </div>
+        <div style="margin-left:10px">
+            <br>
+            <button class="btn btn-info">Satış Ekle</button>
 
-    </div>
+        </div>
 
-/form>*@
+    /form>*@

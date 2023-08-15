@@ -9,18 +9,22 @@ using System.Threading.Tasks;
 
 namespace BusinessLayer.ValidationRulers_fluentValidation
 {
-    public class KategoriValidator:AbstractValidator<Kategori>
+    public class KategoriValidator : AbstractValidator<Kategori>
     {
         public KategoriValidator()
         {
             RuleFor(x => x.KategoriAd).NotEmpty().WithMessage("Kategori Adı Boş Olamaz");
-           
+
+
             //RuleFor(x => x.KategoriAd)
             //   .Must((Kategori, KategoriAd) => IsUniqueKategoriAd(KategoriAd))
             //   .WithMessage("Bu kullanıcı adı daha önce kullanıldı.");
 
         }
-       
+
+
+
+
 
 
 
@@ -30,3 +34,4 @@ namespace BusinessLayer.ValidationRulers_fluentValidation
         //}
     }
 }
+

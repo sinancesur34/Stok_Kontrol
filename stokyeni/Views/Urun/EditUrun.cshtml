@@ -1,0 +1,57 @@
+﻿@model EntityLayer.Concrete.Urun
+@{
+    ViewBag.Title = "EditUrun";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+
+
+
+}
+
+
+
+<center><h2>Ürün Düzenleme Sayfası</h2></center>
+@using (Html.BeginForm("EditUrun", "Urun", FormMethod.Post))
+{
+    <div class="form-group" style="margin-left:20px">
+
+        @Html.Label("Ürün ıd")
+        @Html.TextBoxFor(x => x.UrunID, new { @class = "form-control " })
+        @Html.ValidationMessageFor(x => x.UrunID)
+        <br /> <br />
+        @Html.Label("Musteri Adı")
+        @Html.TextBoxFor(x => x.UrunAd, new { @class = "form-control " })
+        @Html.ValidationMessageFor(x => x.UrunAd)
+        <br /> <br />
+        @Html.Label("Fiyat")
+        @Html.TextBoxFor(x => x.Fiyat, new { @class = "form-control " })
+        @Html.ValidationMessageFor(x => x.Fiyat)
+        <br /> <br />
+        @Html.Label("Kategori")
+        @Html.TextBoxFor(x => x.KategoriID, new { @class = "form-control " })
+        @Html.ValidationMessageFor(x => x.KategoriID)
+        <br /> <br />
+        @Html.Label("Marka")
+        @Html.TextBoxFor(x => x.Marka, new { @class = "form-control " })
+        @Html.ValidationMessageFor(x => x.Marka)
+        <br /> <br />
+        @Html.Label("Stok")
+        @Html.TextBoxFor(x => x.Marka, new { @class = "form-control " })
+        @Html.ValidationMessageFor(x => x.Stok)
+        <br /><br />
+
+
+        <button id="kaydetButton">Kaydet</button>
+
+        <script>
+            var kaydetButton = document.getElementById("kaydetButton");
+            kaydetButton.style.backgroundColor = "#000000";
+            kaydetButton.style.color = "white";
+            kaydetButton.style.border = "none";
+            kaydetButton.style.padding = "10px 20px";
+            kaydetButton.style.borderRadius = "5px";
+        </script>
+    </div>
+
+
+
+}
