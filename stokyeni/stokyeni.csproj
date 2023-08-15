@@ -2301,6 +2301,7 @@
     <Content Include="Views\AdminKategori\EditKategori.cshtml" />
     <Content Include="Views\Musteri\EditMusteri.cshtml" />
     <Content Include="Views\Satis\EditSatis.cshtml" />
+    <Content Include="Views\Urun\EditUrun.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

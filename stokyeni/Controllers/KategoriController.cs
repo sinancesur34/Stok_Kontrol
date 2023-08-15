@@ -8,7 +8,6 @@ using Microsoft.Ajax.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-//using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -24,6 +23,10 @@ namespace tekrar_100ders.Controllers
         // GET: Category
         public ActionResult Index()
         {
+
+            //var categoryvalues km.ToList().ToPagedList
+
+
             return View();
         }
 

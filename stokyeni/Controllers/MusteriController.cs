@@ -6,8 +6,10 @@ using FluentValidation;
 using FluentValidation.Results;
 using Microsoft.Ajax.Utilities;
 using System;
+using System.CodeDom.Compiler;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Data.Entity;
 //using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
@@ -27,8 +29,9 @@ namespace tekrar_100ders.Controllers
         //    return View();
         //}
 
-        public ActionResult Index()
+        public ActionResult Index(string p)
         {
+         
             var Musterivalues = mum.GetList();
             return View(Musterivalues);
         }
@@ -86,6 +89,10 @@ namespace tekrar_100ders.Controllers
             mum.MusteriUpdate(p);
             return RedirectToAction("index");
         }
+
+
+
+
     }
 }
 

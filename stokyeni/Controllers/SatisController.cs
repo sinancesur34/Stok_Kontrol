@@ -8,7 +8,6 @@ using Microsoft.Ajax.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-//using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -20,6 +19,8 @@ namespace tekrar_100ders.Controllers
     {
 
         SatisManager sm = new SatisManager(new EFSatisDal());
+        MusteriManager mum = new MusteriManager(new EFMusteriDal());
+        UrunManager um = new UrunManager(new EFUrunDal());
 
         // GET: Category
         //public ActionResult Index()
@@ -36,6 +37,30 @@ namespace tekrar_100ders.Controllers
         [HttpGet]
         public ActionResult AddSatis()
         {
+            List<SelectListItem> valueMusteri = (from x in mum.GetList()
+                                                  select new SelectListItem
+                                                  {
+                                                      Text = x.MusteriAd,
+                                                      Value = x.MusteriID.ToString()
+
+                                                  }
+                                                   ).ToList();
+            ViewBag.vlm = valueMusteri;
+            
+
+
+
+            List<SelectListItem> valueUrun = (from x in um.GetList()
+                                                 select new SelectListItem
+                                                 {
+                                                     Text = x.UrunAd,
+                                                     Value = x.UrunID.ToString()
+
+                                                 }
+                                                    ).ToList();
+            ViewBag.vlu = valueUrun;
+          
+
             return View();
         }
 
@@ -76,6 +101,7 @@ namespace tekrar_100ders.Controllers
         [HttpGet]
         public ActionResult EditSatis(int id)
         {
+
             var satisvalue = sm.GetByID(id);
             return View(satisvalue);
         }
@@ -83,6 +109,18 @@ namespace tekrar_100ders.Controllers
         [HttpPost]
         public ActionResult EditSatis(Satis p)
         {
+
+
+            List<SelectListItem> valueMusteri = (from x in mum.GetList()
+                                                 select new SelectListItem
+                                                 {
+                                                     Text = x.MusteriAd,
+                                                     Value = x.MusteriID.ToString()
+
+                                                 }
+                                                   ).ToList();
+            ViewBag.vlm = valueMusteri;
+
             sm.SatisUpdate(p);
             return RedirectToAction("index");
         }
