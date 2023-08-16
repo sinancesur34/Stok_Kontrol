@@ -2,9 +2,6 @@
 @{
     ViewBag.Title = "EditSatis";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
-
-
-
 }
 
 
@@ -19,18 +16,19 @@
         @Html.ValidationMessageFor(x => x.SatisID)
         <br /> <br />
         @Html.Label("Müşteri")
-        @Html.DropDownListFor(x => x.MusteriID, (List<SelectListItem>)ViewBag.vlm, new
-          { @class = "form-control" })
+        @Html.TextBoxFor(x => x.MusteriID, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.MusteriID)
+        @*@Html.DropDownListFor(x => x.MusteriID, (List<SelectListItem>)ViewBag.vlm, new
+        { @class = "form-control" })*@
         <br /> <br />
         @Html.Label("Ürün")
+        @*@Html.TextBoxFor(x => x.UrunID, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.UrunID)*@
         @Html.DropDownListFor(x => x.UrunID, (List<SelectListItem>)ViewBag.vlu, new
         { @class = "form-control" })
         <br /> <br />
 
-
-
         <button id="kaydetButton">Kaydet</button>
-
         <script>
             var kaydetButton = document.getElementById("kaydetButton");
             kaydetButton.style.backgroundColor = "#000000";

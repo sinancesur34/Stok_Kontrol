@@ -1,9 +1,10 @@
 ﻿@model EntityLayer.Concrete.Urun
 @{
+    ViewBag.Title = "AddUrun";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
-<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+<br />
 
 @using (Html.BeginForm("AddUrun", "Urun", FormMethod.Post))
 {
@@ -21,9 +22,11 @@
         <br /><br />
 
         <label>Kategori</label>
-        @Html.DropDownListFor(x=> x.KategoriID,(List<SelectListItem>)ViewBag.vlk,new
-        { @class="form-control"})
-        
+        @Html.DropDownListFor(x => x.KategoriID, (List<SelectListItem>)ViewBag.vlk, new
+        { @class = "form-control" })
+
+       
+
         @*@Html.TextBoxFor(x => x.KategoriID, new { @class = "form-control" })
         @Html.ValidationMessageFor(x => x.KategoriID)*@   @*dışarıdan ad kısmını aldıgım için bunu kullanmıyorum*@
         <br /><br />
@@ -35,6 +38,16 @@
             <option value="Arçelik">Arçelik</option>
             <option value="Bosch">Bosch</option>
             <option value="Regal">Regal</option>
+            <option value="Beko">Beko</option>
+            <option value="Altus">Altus</option>
+            <option value="Kumtel">Kumtel</option>
+            <option value="AEG">AEG</option>
+            <option value="Ariston">Ariston</option>
+            <option value="Samsung">Samsung</option>
+            <option value="Siemens">Siemens</option>
+            <option value="Profilo">Profilo</option>
+            <option value="Xiaomi">Xiaomi</option>
+
         </select>
         @Html.ValidationMessageFor(x => x.Marka)
         <br /><br />

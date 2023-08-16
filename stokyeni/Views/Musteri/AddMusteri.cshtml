@@ -1,9 +1,10 @@
 ﻿@model EntityLayer.Concrete.Musteri
 @{
+    ViewBag.Title = "AddMusteri";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 
 }
-<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+
 
 @using (Html.BeginForm("AddMusteri", "Musteri", FormMethod.Post))
 {

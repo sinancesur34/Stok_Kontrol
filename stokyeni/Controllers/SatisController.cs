@@ -21,12 +21,9 @@ namespace tekrar_100ders.Controllers
         SatisManager sm = new SatisManager(new EFSatisDal());
         MusteriManager mum = new MusteriManager(new EFMusteriDal());
         UrunManager um = new UrunManager(new EFUrunDal());
+        KategoriManager km = new KategoriManager(new EFKategoriDal());
 
-        // GET: Category
-        //public ActionResult Index()
-        //{
-        //    return View();
-        //}
+       
 
         public ActionResult Index()
         {
@@ -88,7 +85,7 @@ namespace tekrar_100ders.Controllers
             }
 
 
-            return View(); /*RedirectToAction("GetCategoryList");*/
+            return View(); 
 
         }
         public ActionResult DeleteSatis(int id) //ayrı bir sayfa yapmayacagız indexte sil yapacagız.
@@ -101,6 +98,7 @@ namespace tekrar_100ders.Controllers
         [HttpGet]
         public ActionResult EditSatis(int id)
         {
+           
 
             var satisvalue = sm.GetByID(id);
             return View(satisvalue);
@@ -110,7 +108,6 @@ namespace tekrar_100ders.Controllers
         public ActionResult EditSatis(Satis p)
         {
 
-
             List<SelectListItem> valueMusteri = (from x in mum.GetList()
                                                  select new SelectListItem
                                                  {
@@ -118,10 +115,11 @@ namespace tekrar_100ders.Controllers
                                                      Value = x.MusteriID.ToString()
 
                                                  }
-                                                   ).ToList();
+                                      ).ToList();
             ViewBag.vlm = valueMusteri;
 
-            sm.SatisUpdate(p);
+
+            
             return RedirectToAction("index");
         }
     }

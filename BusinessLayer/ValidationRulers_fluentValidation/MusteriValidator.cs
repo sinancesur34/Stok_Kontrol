@@ -18,16 +18,13 @@ namespace BusinessLayer.ValidationRulers_fluentValidation
             RuleFor(x => x.MusteriAd).NotEmpty().WithMessage("Müşteri Adı Boş Olamaz") ;
             RuleFor(x => x.MusteriSoyad).NotEmpty().WithMessage("Müşteri Soyadı Boş Olamaz");
             RuleFor(x => x.MusteriTCKN).NotEmpty().WithMessage("TC Kimlik No Boş Olamaz");
-            RuleFor(x => x.MusteriID).Must(BeEleven).WithMessage("Kategori ID 11 olmalı");
+          
 
 
 
         }
 
-        private bool BeEleven(int kategoriId)
-        {
-            return kategoriId == 11;
-        }
+     
     }
 }
 
