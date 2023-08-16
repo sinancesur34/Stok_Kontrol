@@ -2,13 +2,10 @@
 @{
     ViewBag.Title = "EditUrun";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
-
-
-
 }
 
 
-
+<br />
 <center><h2>Ürün Düzenleme Sayfası</h2></center>
 @using (Html.BeginForm("EditUrun", "Urun", FormMethod.Post))
 {
@@ -27,15 +24,15 @@
         @Html.ValidationMessageFor(x => x.Fiyat)
         <br /> <br />
         @Html.Label("Kategori")
-        @Html.TextBoxFor(x => x.KategoriID, new { @class = "form-control " })
-        @Html.ValidationMessageFor(x => x.KategoriID)
+        @Html.DropDownListFor(x => x.KategoriID, (List<SelectListItem>)ViewBag.vlk, new
+           { @class = "form-control" })
         <br /> <br />
         @Html.Label("Marka")
         @Html.TextBoxFor(x => x.Marka, new { @class = "form-control " })
         @Html.ValidationMessageFor(x => x.Marka)
         <br /> <br />
         @Html.Label("Stok")
-        @Html.TextBoxFor(x => x.Marka, new { @class = "form-control " })
+        @Html.TextBoxFor(x => x.Stok, new { @class = "form-control " })
         @Html.ValidationMessageFor(x => x.Stok)
         <br /><br />
 

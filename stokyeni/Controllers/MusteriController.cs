@@ -10,7 +10,6 @@ using System.CodeDom.Compiler;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Data.Entity;
-//using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -23,15 +22,9 @@ namespace tekrar_100ders.Controllers
 
         MusteriManager mum = new MusteriManager(new EFMusteriDal());
 
-        // GET: Category
-        //public ActionResult Index()
-        //{
-        //    return View();
-        //}
-
-        public ActionResult Index(string p)
-        {
-         
+       
+        public ActionResult Index()
+        {         
             var Musterivalues = mum.GetList();
             return View(Musterivalues);
         }
@@ -66,7 +59,7 @@ namespace tekrar_100ders.Controllers
             }
 
 
-            return View(); /*RedirectToAction("GetCategoryList");*/
+            return View(); 
 
         }
         public ActionResult DeleteMusteri(int id) //ayrı bir sayfa yapmayacagız indexte sil yapacagız.

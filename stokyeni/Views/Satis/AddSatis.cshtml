@@ -3,7 +3,7 @@
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 
 }
-<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+
 <br />
 <center><h2>Satiş Ekleme Sayfası</h2></center>
 @using (Html.BeginForm("AddSatis", "Satis", FormMethod.Post))
@@ -21,20 +21,20 @@
             { @class = "form-control" })
         <br /><br />
         @Html.Label("Ürün Adı")
-        @Html.DropDownListFor(x => x.UrunID, (List<SelectListItem>)ViewBag.vlu, new
-            { @class = "form-control" })
+        @Html.TextBoxFor(x => x.UrunID, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.UrunID)
         <br /><br />
         <button id="kaydetButton">Kaydet</button>
 
         <script>
-           
-                var kaydetButton = document.getElementById("kaydetButton");
-                kaydetButton.style.backgroundColor = "#000000";
-                kaydetButton.style.color = "white";
-                kaydetButton.style.border = "none";
-                kaydetButton.style.padding = "10px 20px";
-                kaydetButton.style.borderRadius = "5px";
-           
+
+            var kaydetButton = document.getElementById("kaydetButton");
+            kaydetButton.style.backgroundColor = "#000000";
+            kaydetButton.style.color = "white";
+            kaydetButton.style.border = "none";
+            kaydetButton.style.padding = "10px 20px";
+            kaydetButton.style.borderRadius = "5px";
+
         </script>
     </div>
 }

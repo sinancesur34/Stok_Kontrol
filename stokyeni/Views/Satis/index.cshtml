@@ -12,8 +12,15 @@
     <table class="table table-hover">
         <tr>
             <th>Satış ID</th>
-            <th>MÜşteri ID</th>
+            <th>MüşteriID</th>
+            <th>MÜşteri Ad</th>
+            <th>MÜşteri Soyad</th>
+            <th>Müşteri TCKN</th>
             <th>Ürün ID</th>
+            <th>Ürün Ad</th>
+            <th>Marka</th>
+            <th>Fiyat</th>
+            <th>Kategori</th>
             <th></th>
             <th></th>
 
@@ -25,7 +32,14 @@
             <tr>
                 <td>@item.SatisID</td>
                 <td>@item.MusteriID</td>
+                <td>@item.Musteri.MusteriAd</td>
+                <td>@item.Musteri.MusteriSoyad</td>
+                <td>@item.Musteri.MusteriTCKN</td>
                 <td>@item.UrunID</td>
+                <td>@item.Urun.UrunAd</td>
+                <td>@item.Urun.Marka</td>
+                <td>@item.Urun.Fiyat</td>
+                @*<td>@item.</td>*@
 
                 <td><a href="/Satis/DeleteSatis/@item.SatisID" class="btn btn-danger">Satış sil</a></td>
                 <td><a href="/Satis/EditSatis/@item.SatisID" class="btn btn-success">Satış güncelle</a></td>
