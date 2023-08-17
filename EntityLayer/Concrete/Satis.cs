@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace EntityLayer.Concrete
@@ -10,6 +11,8 @@ namespace EntityLayer.Concrete
 
         // Satış ile Müşteri arasında bir ilişki
 
+        public DateTime Tarih { get; set; }
+
         public int MusteriID { get; set; }
         public virtual Musteri Musteri { get; set; }
 
@@ -17,5 +20,7 @@ namespace EntityLayer.Concrete
 
         public int UrunID { get; set; }
         public virtual Urun Urun { get; set; }
+
+      
     }
 }

@@ -1,7 +1,7 @@
 ﻿@model EntityLayer.Concrete.Satis
 @{
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
-
+    ViewBag.Title = "AddSatis";
 }
 
 <br />
@@ -16,13 +16,18 @@
 
 
         <br /><br />
-        @Html.Label("Müşteri Adı")
-        @Html.DropDownListFor(x => x.MusteriID, (List<SelectListItem>)ViewBag.vlm, new
-            { @class = "form-control" })
+
+        @*@Html.Label("Satış")
+        @Html.TextBoxFor(x => x.SatisID, new { @class = "form-control " })
+        @Html.ValidationMessageFor(x => x.SatisID)*@
         <br /><br />
-        @Html.Label("Ürün Adı")
-        @Html.TextBoxFor(x => x.UrunID, new { @class = "form-control" })
-        @Html.ValidationMessageFor(x => x.UrunID)
+        @Html.Label("Müşteri ")
+        @Html.DropDownListFor(x => x.MusteriID, (List<SelectListItem>)ViewBag.vlm, new
+         { @class = "form-control" })
+        <br /><br />
+        @Html.Label("Ürün ")
+        @Html.DropDownListFor(x => x.UrunID, (List<SelectListItem>)ViewBag.vlu, new
+        { @class = "form-control" })
         <br /><br />
         <button id="kaydetButton">Kaydet</button>
 

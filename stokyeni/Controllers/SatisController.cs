@@ -37,7 +37,7 @@ namespace tekrar_100ders.Controllers
             List<SelectListItem> valueMusteri = (from x in mum.GetList()
                                                   select new SelectListItem
                                                   {
-                                                      Text = x.MusteriAd,
+                                                      Text = x.MusteriAd + "  " + x.MusteriSoyad + "  " + x.MusteriTCKN,
                                                       Value = x.MusteriID.ToString()
 
                                                   }
@@ -50,7 +50,7 @@ namespace tekrar_100ders.Controllers
             List<SelectListItem> valueUrun = (from x in um.GetList()
                                                  select new SelectListItem
                                                  {
-                                                     Text = x.UrunAd,
+                                                     Text = x.UrunAd + "  " + x.Marka +"  "+ x.Kategori.KategoriAd,
                                                      Value = x.UrunID.ToString()
 
                                                  }
@@ -71,6 +71,8 @@ namespace tekrar_100ders.Controllers
 
             if (results.IsValid)
             {
+                p.Tarih = DateTime.Now;
+
                 sm.SatisAdd(p);
                 return RedirectToAction("index");
             }
@@ -98,7 +100,28 @@ namespace tekrar_100ders.Controllers
         [HttpGet]
         public ActionResult EditSatis(int id)
         {
-           
+
+            List<SelectListItem> satiseditMusteri = (from x in mum.GetList()
+                                                     select new SelectListItem
+                                                     {
+                                                         Text = x.MusteriAd + "  " + x.MusteriSoyad + "  " + x.MusteriTCKN,
+                                                         Value = x.MusteriID.ToString()
+
+                                                     }
+                                   ).ToList();
+            ViewBag.vlq = satiseditMusteri;
+
+
+
+            List<SelectListItem> geturun = (from x in um.GetList()
+                                              select new SelectListItem
+                                              {
+                                                  Text = x.UrunAd + "  " + x.Marka + "  " + x.Kategori.KategoriAd,
+                                                  Value = x.UrunID.ToString()
+
+                                              }
+                                                    ).ToList();
+            ViewBag.vlg = geturun;
 
             var satisvalue = sm.GetByID(id);
             return View(satisvalue);
@@ -108,18 +131,10 @@ namespace tekrar_100ders.Controllers
         public ActionResult EditSatis(Satis p)
         {
 
-            List<SelectListItem> valueMusteri = (from x in mum.GetList()
-                                                 select new SelectListItem
-                                                 {
-                                                     Text = x.MusteriAd,
-                                                     Value = x.MusteriID.ToString()
-
-                                                 }
-                                      ).ToList();
-            ViewBag.vlm = valueMusteri;
 
 
-            
+
+            sm.SatisUpdate(p);
             return RedirectToAction("index");
         }
     }
