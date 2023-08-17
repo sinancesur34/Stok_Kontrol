@@ -44,8 +44,9 @@ namespace DataAccessLayer.Concrete.Repositories
 
         public void Insert(T p)
         {
-
+            
             var addedEntity = c.Entry(p);
+
             addedEntity.State = EntityState.Added;
             c.SaveChanges();
 

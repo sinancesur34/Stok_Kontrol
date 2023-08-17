@@ -31,7 +31,7 @@ namespace BusinessLayer.Concrete
 
         public List<Kategori> GetList()
         {
-            return _KategoriDal.List();
+            return _KategoriDal.List().OrderBy(kategori => kategori.KategoriID).ToList();
         }
 
         public Kategori GetByID(int id)

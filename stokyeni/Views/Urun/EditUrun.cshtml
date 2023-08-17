@@ -24,8 +24,11 @@
         @Html.ValidationMessageFor(x => x.Fiyat)
         <br /> <br />
         @Html.Label("Kategori")
-        @Html.DropDownListFor(x => x.KategoriID, (List<SelectListItem>)ViewBag.vlk, new
-           { @class = "form-control" })
+        @Html.DropDownListFor(x => x.KategoriID, (List<SelectListItem>)ViewBag.vlc, new
+       { @class = "form-control" })
+
+        @*@Html.DropDownListFor(x => x.KategoriID, (List<SelectListItem>)ViewBag.vlk, new
+        { @class = "form-control" })*@
         <br /> <br />
         @Html.Label("Marka")
         @Html.TextBoxFor(x => x.Marka, new { @class = "form-control " })

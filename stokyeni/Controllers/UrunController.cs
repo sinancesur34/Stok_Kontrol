@@ -84,7 +84,19 @@ namespace tekrar_100ders.Controllers
 
         [HttpGet]
         public ActionResult EditUrun(int id)
+
         {
+            List<SelectListItem> degerkategori = (from x in km.GetList()
+                                                  select new SelectListItem
+                                                  {
+                                                      Text = x.KategoriAd,
+                                                      Value = x.KategoriID.ToString()
+
+                                                  }
+                                               ).ToList();
+            ViewBag.vlc = degerkategori;
+
+
             var urunvalue = um.GetByID(id);
             return View(urunvalue);
         }

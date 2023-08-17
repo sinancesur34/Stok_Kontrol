@@ -14,7 +14,7 @@ namespace EntityLayer.Concrete
         [StringLength(50)]
         public string MusteriSoyad { get; set; }
 
-        public int MusteriTCKN { get; set; }
+        public string MusteriTCKN { get; set; }
 
         // Müşi ile Satışlarasında bir ilişki
         public virtual ICollection<Satis> Satislar { get; set; }
