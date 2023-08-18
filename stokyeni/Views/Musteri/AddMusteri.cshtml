@@ -15,8 +15,8 @@
     <div class="form-group" style="margin-left:20px">
 
         @*@Html.Label("Musteri ID")
-            @Html.TextBoxFor(x => x.MusteriID)
-            @Html.ValidationMessageFor(x => x.MusteriID)*@
+        @Html.TextBoxFor(x => x.MusteriID)
+        @Html.ValidationMessageFor(x => x.MusteriID)*@
         <br /><br />
         @Html.Label("Musteri Adı")
         @Html.TextBoxFor(x => x.MusteriAd, new { @class = "form-control" })
@@ -29,16 +29,17 @@
         @Html.Label("Musteri TCKN")
         @Html.TextBoxFor(x => x.MusteriTCKN, new { @class = "form-control" })
         @Html.ValidationMessageFor(x => x.MusteriTCKN)
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <br /><br />
         <button id="kaydetButton">Kaydet</button>
 
         <script>
-    var kaydetButton = document.getElementById("kaydetButton");
-    kaydetButton.style.backgroundColor = "#000000";
-    kaydetButton.style.color = "white";
-    kaydetButton.style.border = "none";
-    kaydetButton.style.padding = "10px 20px";
-    kaydetButton.style.borderRadius = "5px";
+            var kaydetButton = document.getElementById("kaydetButton");
+            kaydetButton.style.backgroundColor = "#000000";
+            kaydetButton.style.color = "white";
+            kaydetButton.style.border = "none";
+            kaydetButton.style.padding = "10px 20px";
+            kaydetButton.style.borderRadius = "5px";
         </script>
     </div>
 }

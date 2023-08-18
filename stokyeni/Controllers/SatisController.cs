@@ -131,7 +131,8 @@ namespace tekrar_100ders.Controllers
         public ActionResult EditSatis(Satis p)
         {
 
-
+            
+            p.Tarih = DateTime.Now;
 
 
             sm.SatisUpdate(p);
