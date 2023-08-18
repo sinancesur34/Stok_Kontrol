@@ -10,6 +10,8 @@ using System.CodeDom.Compiler;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Data.Entity;
+using System.Data.Entity.Infrastructure;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -45,8 +47,18 @@ namespace tekrar_100ders.Controllers
 
             if (results.IsValid)
             {
-                mum.MusteriAdd(p);
-                return RedirectToAction("index");
+                try
+                {
+                    mum.MusteriAdd(p);
+                    return RedirectToAction("index");
+                }
+                catch (Exception e)
+                {
+                    string errorMessage = "Bir hata oluştu: " + e.Message;
+                    ModelState.AddModelError(string.Empty, errorMessage);
+                }
+
+
             }
             else
 

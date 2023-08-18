@@ -15,9 +15,9 @@ namespace BusinessLayer.ValidationRulers_fluentValidation
     {
         public MusteriValidator()
         {
-           RuleFor(x => x.MusteriTCKN).MinimumLength(11).WithMessage("11 tane değer gir aq");
-            RuleFor(x => x.MusteriTCKN).MaximumLength(11).WithMessage("11 tane değer gir aq");
-
+           RuleFor(x => x.MusteriTCKN).MinimumLength(11).WithMessage("11 hane giriniz ");
+            RuleFor(x => x.MusteriTCKN).MaximumLength(11).WithMessage("11 hane giriniz ");
+            //RuleFor(x => x.MusteriTCKN).("11 hane giriniz ");
             RuleFor(x => x.MusteriAd).NotEmpty().WithMessage("Müşteri Adı Boş Olamaz") ;
             RuleFor(x => x.MusteriSoyad).NotEmpty().WithMessage("Müşteri Soyadı Boş Olamaz");
             RuleFor(x => x.MusteriTCKN).NotEmpty().WithMessage("TC Kimlik No Boş Olamaz");
@@ -26,6 +26,7 @@ namespace BusinessLayer.ValidationRulers_fluentValidation
 
 
         }
+
 
      
     }
